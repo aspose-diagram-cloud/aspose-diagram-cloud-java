@@ -7,8 +7,8 @@ import com.aspose.cloud.diagram.model.AccessTokenResponse;
 public class DiagramApiUtil {
 	private static String accesstoken;
 	private static String grantType = "client_credentials";
-	private static String clientId = "84220e69-32e2-41c4-ba2f-662a0a01433e";
-	private static String clientSecret = "883dc8d6b8ecd879dae35cb363e9eb56";
+	private static String clientId = "xxxxxxxx";
+	private static String clientSecret = "xxxxxx";
 	private static String sourceFolder ="D:\\Projects\\Aspose\\Aspose.Cloud\\Aspose.Cells.Cloud.SDK\\src\\TestData\\";
 	public static String GetSourceFolder() {
 		return sourceFolder;
