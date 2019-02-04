@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cloud.aspose</groupId>
+    <artifactId>aspose-diagram-cloud-examples</artifactId>
+    <version>1.0</version>
+
+    <repositories>
+        <repository>
+            <id>aspose-cloud</id>
+            <name>artifact.aspose-cloud-releases</name>
+            <url>http://artifact.aspose.cloud/repo</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-cloud-storage</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-diagram-cloud</artifactId>
+            <version>18.10</version>
+        </dependency>
+    </dependencies>
+
+</project>
