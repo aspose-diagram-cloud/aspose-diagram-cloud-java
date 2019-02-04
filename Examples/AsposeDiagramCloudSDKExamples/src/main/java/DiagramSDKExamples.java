@@ -16,8 +16,8 @@ public class DiagramSDKExamples {
 
     private static String accesstoken;
     private static String grantType = "client_credentials";
-    private static String clientId = "B01A15E5-1B83-4B9A-8EB3-0F2BFA6AC766"; // Get App key and App SID from https://dashboard.aspose.cloud/
-    private static String clientSecret = "da77c9f5da014d91faf2961ecec2de66"; // Get App key and App SID from https://dashboard.aspose.cloud/
+    private static String clientId = ""; // Get App key and App SID from https://dashboard.aspose.cloud/
+    private static String clientSecret = ""; // Get App key and App SID from https://dashboard.aspose.cloud/
     private static String basePath = "https://api.aspose.cloud/v1.1";
 
     public static void main(String[] args) {
