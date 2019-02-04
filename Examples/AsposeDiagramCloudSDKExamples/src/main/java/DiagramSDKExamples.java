@@ -6,8 +6,6 @@ import com.aspose.cloud.diagram.model.AccessTokenResponse;
 import com.aspose.cloud.diagram.model.FileFormatRequest;
 import com.aspose.cloud.diagram.model.SaaSposeResponse;
 import com.aspose.cloud.diagram.model.SaveResponse;
-import com.aspose.storage.api.StorageApi;
-import com.aspose.storage.model.ResponseMessage;
 
 import java.io.File;
 
@@ -18,8 +16,8 @@ public class DiagramSDKExamples {
 
     private static String accesstoken;
     private static String grantType = "client_credentials";
-    private static String clientId = ""; // Get App key and App SID from https://dashboard.aspose.cloud/
-    private static String clientSecret = ""; // Get App key and App SID from https://dashboard.aspose.cloud/
+    private static String clientId = "B01A15E5-1B83-4B9A-8EB3-0F2BFA6AC766"; // Get App key and App SID from https://dashboard.aspose.cloud/
+    private static String clientSecret = "da77c9f5da014d91faf2961ecec2de66"; // Get App key and App SID from https://dashboard.aspose.cloud/
     private static String basePath = "https://api.aspose.cloud/v1.1";
 
     public static void main(String[] args) {
@@ -31,13 +29,12 @@ public class DiagramSDKExamples {
         // Create new file
         diagramSDKExamples.createNewFile();
         // Upload file
-        diagramSDKExamples.uploadFile();
+        diagramSDKExamples.uploadFile("file_get_1.vdx", "src/main/resources/file_get_1.vdx");
     }
 
     public void getDocumentInfo() {
         try {
             DiagramFileApi api = new DiagramFileApi();
-            StorageApi storageApi = new StorageApi(basePath, clientSecret, clientId);
 
             String name = "file_get_1.vdx";
             String format = "pdf";
@@ -45,8 +42,7 @@ public class DiagramSDKExamples {
             String storage = null;
 
             // Upload file to Cloud Storage
-            File file = new File("src/main/resources/" + name);
-            ResponseMessage uploadFileResponse = storageApi.PutCreate(name, null, null, file);
+            uploadFile(name, "src/main/resources/" + name);
 
             api.setApiClient(getAPIClient());
             File response = api.diagramFileGetDiagram(name, format, folder, storage);
@@ -58,10 +54,8 @@ public class DiagramSDKExamples {
 
     public void saveFileAsAnotherFormat() {
         try {
-            // Initialize DiagramFileApi and StorageApi object
             DiagramFileApi diagramAPI = new DiagramFileApi();
             diagramAPI.setApiClient(getAPIClient());
-            StorageApi storageAPI = new StorageApi(basePath, clientSecret, clientId);
 
             String name = "file_get_1.vdx";
             FileFormatRequest format = new FileFormatRequest();
@@ -73,8 +67,7 @@ public class DiagramSDKExamples {
             String storage = null;
 
             // Upload file to Cloud Storage
-            File file = new File("src/main/resources/" + name);
-            ResponseMessage uploadFileResponse = storageAPI.PutCreate(name, null, null, file);
+            uploadFile(name, "src/main/resources/" + name);
 
             SaveResponse response = diagramAPI.diagramFilePostSaveAs(name, format, newfilename, folder, isOverwrite, storage);
             System.out.println("API Response: " + response);
@@ -100,18 +93,16 @@ public class DiagramSDKExamples {
         }
     }
 
-    public void uploadFile() {
+    public void uploadFile(String name, String localFilePath) {
         try {
             DiagramFileApi diagramAPI = new DiagramFileApi();
             diagramAPI.setApiClient(getAPIClient());
 
-            String name = "file_get_1.vdx";
             String folder = null;
             Boolean isOverwrite = true;
             String storage = null;
 
             // Upload file to Cloud Storage
-            String localFilePath= "src/main/resources/" + name;
             SaaSposeResponse response = diagramAPI.diagramFilePutUpload(localFilePath, name, folder, isOverwrite, storage);
             System.out.println("API Response: " + response);
         } catch (Exception e) {
