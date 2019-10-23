@@ -1,10 +1,10 @@
 # OAuthApi
 
-All URIs are relative to *https://api.aspose.cloud/v1.1/*
+All URIs are relative to *https://api.aspose.cloud/v3.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**oAuthPost**](OAuthApi.md#oAuthPost) | **POST** /oauth2/token | Get Access token
+[**oAuthPost**](OAuthApi.md#oAuthPost) | **POST** /connect/token | Get Access token
 
 
 <a name="oAuthPost"></a>

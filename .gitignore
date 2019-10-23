@@ -19,6 +19,3 @@ hs_err_pid*
 target
 .gradle
 build
-/.metadata
-/.settings
-/git_push.sh

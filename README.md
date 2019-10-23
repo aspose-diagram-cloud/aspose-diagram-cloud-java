@@ -1,156 +1,99 @@
-# aspose-Diagram-cloud
+[Aspose.Diagram Cloud](https://products.aspose.cloud/Diagram) helps you develop diagrams manipulation applications. Our REST API based Diagram Cloud SDK allows your applications to work with Microsoft Visio Object Model. 
 
-## Requirements
+This repository contains Aspose.Diagram Cloud SDK source code. This SDK allows you to work with Aspose.Diagram Cloud REST APIs in your applications quickly and easily, with zero initial cost.
 
-Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
+To use this SDK, you will need App SID and App Key which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
 
-## Installation
 
-To install the API client library to your local Maven repository, simply execute:
+# Features
 
-```shell
-mvn install
+### Support Import Formats  
+* VSDX
+* VDX
+* VSD
+* VSX
+* VTX
+* VSSX
+* VSTX
+* VSDM
+* VSSM
+* VSTM
+* VDW
+* VSS
+* VST
+
+### Support Export Formats  
+* VSDX
+* VDX
+* VSX
+* VTX
+* VSSX
+* VSTX
+* VSDM
+* VSSM
+* VSTM
+* PDF
+* XPS
+* SWF
+* SVG
+* EMF
+* JPEG
+* PNG
+* BMP
+* TIFF
+* HTML
+
+### Supported Operations
+* Convert document format
+* Create new document
+* Upload document and save it with supported format
+* Download document with supported format 
+
+For the complete list of use-cases, please refer to [common operations format support map](https://docs.aspose.cloud/display/diagramcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap) to see what you can achieve!
+
+
+# Storage API support
+#### Since version 19.10, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
+
+It gives you an ability to:
+* Upload, download, copy, move and delete files, including versions handling (if you are using Cloud storage that supports this feature - true by default)
+* Create, copy, move and delete folders
+* Copy and move files and folders accross separate storages in scope of a single operation
+* Check if certain file, folder or storage exists
+
+# Usage
+Please, add the following [NuGet package](https://www.nuget.org/packages/Aspose.Diagram-Cloud/) to your project.
+
+# Examples
+Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
+
+### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
+Starting from v19.10, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
+The details about key differences and deployment process will be described on the dedicated Docker Hub page as soon as it's released.
+
+To succeed with your on-premise service usage by the SDK, you need to:
+1. Use the new API class constructor with grantType parameter, clientId and clientSecret parameters.
 ```
-
-To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
-
-```shell
-mvn deploy
+DiagramApi diagramApi = new DiagramApi(grantType, clientId, clientSecret);
 ```
+2. Set *storage* or *storageName* parameters for each request where they're present (mandatory!).
 
-Refer to the [official documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
+# Tests
+Tests are intended for internal usage only.
 
-### Maven users
+# Licensing
+All Aspose.Diagram Cloud SDKs, helper scripts and templates are licensed under [MIT License](LICENSE).
 
-Add this dependency to your project's POM:
+# Contact Us
+Your feedback is very important to us. Please feel free to contact via
++ [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
++ [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
 
-```xml
-<dependency>
-    <groupId>com.aspose</groupId>
-    <artifactId>aspose-Diagram-cloud</artifactId>
-    <version>18.10</version>
-    <scope>compile</scope>
-</dependency>
-```
-
-### Gradle users
-
-Add this dependency to your project's build file:
-
-```groovy
-compile "com.aspose:aspose-Diagram-cloud:18.10"
-```
-
-### Others
-
-At first generate the JAR by executing:
-
-    mvn package
-
-Then manually install the following JARs:
-
-* target/aspose-Diagram-cloud-18.10.jar
-* target/lib/*.jar
-
-## Getting Started
-
-Please follow the [installation](#installation) instruction and execute the following Java code:
-
-```java
-
-import com.aspose.cloud.diagram.client.*;
-import com.aspose.cloud.diagram.client.auth.*;
-import com.aspose.cloud.diagram.model.*;
-import com.aspose.cloud.diagram.api.DiagramFileApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DiagramFileApiExample {
-
-    public static void main(String[] args) {
-        
-        DiagramFileApi apiInstance = new DiagramFileApi();
-        String name = "name_example"; // String | The document name.
-        String format = "format_example"; // String | The exported file format.
-        String folder = "folder_example"; // String | The document folder.
-        String storage = "storage_example"; // String | storage name.
-        try {
-            File result = apiInstance.diagramFileGetDiagram(name, format, folder, storage);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DiagramFileApi#diagramFileGetDiagram");
-            e.printStackTrace();
-        }
-    }
-}
-
-```
-
-## Documentation for API Endpoints
-
-All URIs are relative to *https://api.aspose.cloud/v1.1/*
-
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*DiagramFileApi* | [**diagramFileGetDiagram**](docs/DiagramFileApi.md#diagramFileGetDiagram) | **GET** /diagram/{name} | Read document info or export.
-*DiagramFileApi* | [**diagramFilePostSaveAs**](docs/DiagramFileApi.md#diagramFilePostSaveAs) | **POST** /diagram/{name}/SaveAs | Convert document and save result to storage.
-*DiagramFileApi* | [**diagramFilePutCreate**](docs/DiagramFileApi.md#diagramFilePutCreate) | **PUT** /diagram/{name} | Create new diagram and save result to storage.
-*DiagramFileApi* | [**diagramFilePutUpload**](docs/DiagramFileApi.md#diagramFilePutUpload) | **PUT** /diagram/{name}/upload | Upload file and save result to storage.
-*OAuthApi* | [**oAuthPost**](docs/OAuthApi.md#oAuthPost) | **POST** /oauth2/token | Get Access token
-
-
-## Documentation for Models
-
- - [AccessTokenResponse](docs/AccessTokenResponse.md)
- - [DiagramModel](docs/DiagramModel.md)
- - [FileFormatRequest](docs/FileFormatRequest.md)
- - [Link](docs/Link.md)
- - [PageModel](docs/PageModel.md)
- - [SaaSposeResponse](docs/SaaSposeResponse.md)
- - [SaveResult](docs/SaveResult.md)
- - [SharpModel](docs/SharpModel.md)
- - [DiagramResponse](docs/DiagramResponse.md)
- - [SaveResponse](docs/SaveResponse.md)
-
-
-## Documentation for Authorization
-
-Authentication schemes defined for the API:
-### appsid
-
-- **Type**: API key
-- **API key parameter name**: appsid
-- **Location**: URL query string
-
-### oauth
-
-- **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: 
-- **Scopes**: 
-  - write:pets: modify pets in your account
-
-### signature
-
-- **Type**: API key
-- **API key parameter name**: signature
-- **Location**: URL query string
-
-
-## Recommendation
-
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
-
-## Resources
+# Resources
 + [**Website**](https://www.aspose.cloud)
 + [**Product Home**](https://products.aspose.cloud/diagram)
 + [**Documentation**](https://docs.aspose.cloud/display/diagramcloud/Home)
 + [**API Reference**](https://apireference.aspose.cloud/diagram/)
 + [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
 + [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
-+ [**Blog**](https://blog.aspose.cloud/category/diagram/)
-
-
-
-
++ [**Blog**](https://blog.aspose.cloud/category/diagram/
