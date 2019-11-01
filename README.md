@@ -61,6 +61,26 @@ It gives you an ability to:
 * Copy and move files and folders accross separate storages in scope of a single operation
 * Check if certain file, folder or storage exists
 
+### Maven users
+
+Add this dependency and repository to your project's POM:
+
+```xml
+<dependencies>
+	<dependency>
+		<groupId>com.aspose</groupId>
+		<artifactId>aspose-diagram-cloud</artifactId>
+		<version>19.10</version>
+	</dependency>
+</dependencies>
+<repositories>
+	<repository>
+		<id>AsposeJavaAPI</id>
+		<name>Aspose Java API</name>
+		<url>https://repository.aspose.cloud/repo/</url>
+	</repository>
+</repositories>
+```
 # Examples
 Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
 
