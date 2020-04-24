@@ -53,7 +53,7 @@ For the complete list of use-cases, please refer to [common operations format su
 
 
 # Storage API support
-#### Since version 19.10, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
+#### Since version 20.3, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
 
 It gives you an ability to:
 * Upload, download, copy, move and delete files, including versions handling (if you are using Cloud storage that supports this feature - true by default)
@@ -70,7 +70,7 @@ Add this dependency and repository to your project's POM:
 	<dependency>
 		<groupId>com.aspose</groupId>
 		<artifactId>aspose-diagram-cloud</artifactId>
-		<version>19.10</version>
+		<version>20.3</version>
 	</dependency>
 </dependencies>
 <repositories>
@@ -85,7 +85,7 @@ Add this dependency and repository to your project's POM:
 Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
 
 ### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
-Starting from v19.10, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
+Starting from v20.3, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
 The details about key differences and deployment process will be described on the dedicated Docker Hub page as soon as it's released.
 
 To succeed with your on-premise service usage by the SDK, you need to:

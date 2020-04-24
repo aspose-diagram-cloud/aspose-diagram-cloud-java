@@ -29,7 +29,13 @@ import com.aspose.cloud.diagram.client.Pair;
 import com.aspose.cloud.diagram.client.ProgressRequestBody;
 import com.aspose.cloud.diagram.client.ProgressResponseBody;
 import com.aspose.cloud.diagram.model.AccessTokenResponse;
+import com.aspose.cloud.diagram.model.ApiResponseOfListOfPageData;
 import com.aspose.cloud.diagram.model.CreateNewResponse;
+import com.aspose.cloud.diagram.model.EllipseData;
+import com.aspose.cloud.diagram.model.LineData;
+import com.aspose.cloud.diagram.model.ModifyResponse;
+import com.aspose.cloud.diagram.model.PageSetting;
+import com.aspose.cloud.diagram.model.PolylineData;
 import com.aspose.cloud.diagram.model.SaveAsResponse;
 import com.aspose.cloud.diagram.model.SaveOptionsRequest;
 import com.google.gson.reflect.TypeToken;
@@ -765,4 +771,1028 @@ public class DiagramApi {
 		apiClient.executeAsync(call, localVarReturnType, callback);
 		return call;
 	}
+	
+	 /**
+     * Build call for putDrawEllipse
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param ellipseData drawing ellipse data. (required)
+     * @param folder Document folder. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putDrawEllipseCall(String name, String pageName, EllipseData ellipseData, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = ellipseData;
+        
+        // create path and map variables
+        String localVarPath = "/diagram/{name}/pages/{pageName}/drawEllipse"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "pageName" + "\\}", apiClient.escapeString(pageName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (folder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "folder", folder));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call putDrawEllipseValidateBeforeCall(String name, String pageName, EllipseData ellipseData, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putDrawEllipse(Async)");
+        }
+        
+        // verify the required parameter 'pageName' is set
+        if (pageName == null) {
+            throw new ApiException("Missing the required parameter 'pageName' when calling putDrawEllipse(Async)");
+        }
+        
+        // verify the required parameter 'ellipseData' is set
+        if (ellipseData == null) {
+            throw new ApiException("Missing the required parameter 'ellipseData' when calling putDrawEllipse(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = putDrawEllipseCall(name, pageName, ellipseData, folder, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * draw ellipse on the page.
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param ellipseData drawing ellipse data. (required)
+     * @param folder Document folder. (optional)
+     * @return ModifyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyResponse putDrawEllipse(String name, String pageName, EllipseData ellipseData, String folder) throws ApiException {
+        ApiResponse<ModifyResponse> resp = putDrawEllipseWithHttpInfo(name, pageName, ellipseData, folder);
+        return resp.getData();
+    }
+
+    /**
+     * draw ellipse on the page.
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param ellipseData drawing ellipse data. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponse&lt;ModifyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyResponse> putDrawEllipseWithHttpInfo(String name, String pageName, EllipseData ellipseData, String folder) throws ApiException {
+        com.squareup.okhttp.Call call = putDrawEllipseValidateBeforeCall(name, pageName, ellipseData, folder, null, null);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * draw ellipse on the page. (asynchronously)
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param ellipseData drawing ellipse data. (required)
+     * @param folder Document folder. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putDrawEllipseAsync(String name, String pageName, EllipseData ellipseData, String folder, final ApiCallback<ModifyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putDrawEllipseValidateBeforeCall(name, pageName, ellipseData, folder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putDrawLine
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param lineData drawing line data. (required)
+     * @param folder Document folder. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putDrawLineCall(String name, String pageName, LineData lineData, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = lineData;
+        
+        // create path and map variables
+        String localVarPath = "/diagram/{name}/pages/{pageName}/drawLine"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "pageName" + "\\}", apiClient.escapeString(pageName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (folder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "folder", folder));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call putDrawLineValidateBeforeCall(String name, String pageName, LineData lineData, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putDrawLine(Async)");
+        }
+        
+        // verify the required parameter 'pageName' is set
+        if (pageName == null) {
+            throw new ApiException("Missing the required parameter 'pageName' when calling putDrawLine(Async)");
+        }
+        
+        // verify the required parameter 'lineData' is set
+        if (lineData == null) {
+            throw new ApiException("Missing the required parameter 'lineData' when calling putDrawLine(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = putDrawLineCall(name, pageName, lineData, folder, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * draw line on the page.
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param lineData drawing line data. (required)
+     * @param folder Document folder. (optional)
+     * @return ModifyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyResponse putDrawLine(String name, String pageName, LineData lineData, String folder) throws ApiException {
+        ApiResponse<ModifyResponse> resp = putDrawLineWithHttpInfo(name, pageName, lineData, folder);
+        return resp.getData();
+    }
+
+    /**
+     * draw line on the page.
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param lineData drawing line data. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponse&lt;ModifyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyResponse> putDrawLineWithHttpInfo(String name, String pageName, LineData lineData, String folder) throws ApiException {
+        com.squareup.okhttp.Call call = putDrawLineValidateBeforeCall(name, pageName, lineData, folder, null, null);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * draw line on the page. (asynchronously)
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param lineData drawing line data. (required)
+     * @param folder Document folder. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putDrawLineAsync(String name, String pageName, LineData lineData, String folder, final ApiCallback<ModifyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putDrawLineValidateBeforeCall(name, pageName, lineData, folder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putDrawPolyline
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param polylineData drawing polyline data. (required)
+     * @param folder Document folder. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putDrawPolylineCall(String name, String pageName, PolylineData polylineData, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = polylineData;
+        
+        // create path and map variables
+        String localVarPath = "/diagram/{name}/pages/{pageName}/drawPolyline"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "pageName" + "\\}", apiClient.escapeString(pageName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (folder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "folder", folder));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call putDrawPolylineValidateBeforeCall(String name, String pageName, PolylineData polylineData, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putDrawPolyline(Async)");
+        }
+        
+        // verify the required parameter 'pageName' is set
+        if (pageName == null) {
+            throw new ApiException("Missing the required parameter 'pageName' when calling putDrawPolyline(Async)");
+        }
+        
+        // verify the required parameter 'polylineData' is set
+        if (polylineData == null) {
+            throw new ApiException("Missing the required parameter 'polylineData' when calling putDrawPolyline(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = putDrawPolylineCall(name, pageName, polylineData, folder, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * draw polyline on the page.
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param polylineData drawing polyline data. (required)
+     * @param folder Document folder. (optional)
+     * @return ModifyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyResponse putDrawPolyline(String name, String pageName, PolylineData polylineData, String folder) throws ApiException {
+        ApiResponse<ModifyResponse> resp = putDrawPolylineWithHttpInfo(name, pageName, polylineData, folder);
+        return resp.getData();
+    }
+
+    /**
+     * draw polyline on the page.
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param polylineData drawing polyline data. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponse&lt;ModifyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyResponse> putDrawPolylineWithHttpInfo(String name, String pageName, PolylineData polylineData, String folder) throws ApiException {
+        com.squareup.okhttp.Call call = putDrawPolylineValidateBeforeCall(name, pageName, polylineData, folder, null, null);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * draw polyline on the page. (asynchronously)
+     * 
+     * @param name Document name. (required)
+     * @param pageName Page name. (required)
+     * @param polylineData drawing polyline data. (required)
+     * @param folder Document folder. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putDrawPolylineAsync(String name, String pageName, PolylineData polylineData, String folder, final ApiCallback<ModifyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putDrawPolylineValidateBeforeCall(name, pageName, polylineData, folder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    
+    /**
+     * Build call for deletePage
+     * @param name Document name. (required)
+     * @param pageName The page name for delete. (required)
+     * @param folder Document folder. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call deletePageCall(String name, String pageName, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/diagram/{name}/pages/{pageName}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()))
+            .replaceAll("\\{" + "pageName" + "\\}", apiClient.escapeString(pageName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (folder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "folder", folder));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deletePageValidateBeforeCall(String name, String pageName, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling deletePage(Async)");
+        }
+        
+        // verify the required parameter 'pageName' is set
+        if (pageName == null) {
+            throw new ApiException("Missing the required parameter 'pageName' when calling deletePage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = deletePageCall(name, pageName, folder, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Remove Page
+     * 
+     * @param name Document name. (required)
+     * @param pageName The page name for delete. (required)
+     * @param folder Document folder. (optional)
+     * @return ModifyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyResponse deletePage(String name, String pageName, String folder) throws ApiException {
+        ApiResponse<ModifyResponse> resp = deletePageWithHttpInfo(name, pageName, folder);
+        return resp.getData();
+    }
+
+    /**
+     * Remove Page
+     * 
+     * @param name Document name. (required)
+     * @param pageName The page name for delete. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponse&lt;ModifyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyResponse> deletePageWithHttpInfo(String name, String pageName, String folder) throws ApiException {
+        com.squareup.okhttp.Call call = deletePageValidateBeforeCall(name, pageName, folder, null, null);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Remove Page (asynchronously)
+     * 
+     * @param name Document name. (required)
+     * @param pageName The page name for delete. (required)
+     * @param folder Document folder. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deletePageAsync(String name, String pageName, String folder, final ApiCallback<ModifyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deletePageValidateBeforeCall(name, pageName, folder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getPages
+     * @param name Document name. (required)
+     * @param folder Document folder. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call getPagesCall(String name, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/diagram/{name}/pages"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (folder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "folder", folder));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getPagesValidateBeforeCall(String name, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling getPages(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = getPagesCall(name, folder, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Read pages info.
+     * 
+     * @param name Document name. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponseOfListOfPageData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponseOfListOfPageData getPages(String name, String folder) throws ApiException {
+        ApiResponse<ApiResponseOfListOfPageData> resp = getPagesWithHttpInfo(name, folder);
+        return resp.getData();
+    }
+
+    /**
+     * Read pages info.
+     * 
+     * @param name Document name. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponse&lt;ApiResponseOfListOfPageData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ApiResponseOfListOfPageData> getPagesWithHttpInfo(String name, String folder) throws ApiException {
+        com.squareup.okhttp.Call call = getPagesValidateBeforeCall(name, folder, null, null);
+        Type localVarReturnType = new TypeToken<ApiResponseOfListOfPageData>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Read pages info. (asynchronously)
+     * 
+     * @param name Document name. (required)
+     * @param folder Document folder. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getPagesAsync(String name, String folder, final ApiCallback<ApiResponseOfListOfPageData> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getPagesValidateBeforeCall(name, folder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ApiResponseOfListOfPageData>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for postPageSetup
+     * @param name Document name. (required)
+     * @param pageName The page name for setting. (required)
+     * @param pageSetting Page setting info. (required)
+     * @param folder Document folder. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call postPageSetupCall(String name, String pageName, PageSetting pageSetting, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = pageSetting;
+        
+        // create path and map variables
+        String localVarPath = "/diagram/{name}/pages/PageSetup"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (pageName != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageName", pageName));
+        if (folder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "folder", folder));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call postPageSetupValidateBeforeCall(String name, String pageName, PageSetting pageSetting, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling postPageSetup(Async)");
+        }
+        
+        // verify the required parameter 'pageName' is set
+        if (pageName == null) {
+            throw new ApiException("Missing the required parameter 'pageName' when calling postPageSetup(Async)");
+        }
+        
+        // verify the required parameter 'pageSetting' is set
+        if (pageSetting == null) {
+            throw new ApiException("Missing the required parameter 'pageSetting' when calling postPageSetup(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = postPageSetupCall(name, pageName, pageSetting, folder, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * page setup
+     * 
+     * @param name Document name. (required)
+     * @param pageName The page name for setting. (required)
+     * @param pageSetting Page setting info. (required)
+     * @param folder Document folder. (optional)
+     * @return ModifyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyResponse postPageSetup(String name, String pageName, PageSetting pageSetting, String folder) throws ApiException {
+        ApiResponse<ModifyResponse> resp = postPageSetupWithHttpInfo(name, pageName, pageSetting, folder);
+        return resp.getData();
+    }
+
+    /**
+     * page setup
+     * 
+     * @param name Document name. (required)
+     * @param pageName The page name for setting. (required)
+     * @param pageSetting Page setting info. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponse&lt;ModifyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyResponse> postPageSetupWithHttpInfo(String name, String pageName, PageSetting pageSetting, String folder) throws ApiException {
+        com.squareup.okhttp.Call call = postPageSetupValidateBeforeCall(name, pageName, pageSetting, folder, null, null);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * page setup (asynchronously)
+     * 
+     * @param name Document name. (required)
+     * @param pageName The page name for setting. (required)
+     * @param pageSetting Page setting info. (required)
+     * @param folder Document folder. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call postPageSetupAsync(String name, String pageName, PageSetting pageSetting, String folder, final ApiCallback<ModifyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = postPageSetupValidateBeforeCall(name, pageName, pageSetting, folder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for putNewPage
+     * @param name Document name. (required)
+     * @param pageName New page name. (required)
+     * @param folder Document folder. (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call putNewPageCall(String name, String pageName, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/diagram/{name}/pages/addNew"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        if (pageName != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "pageName", pageName));
+        if (folder != null)
+        localVarQueryParams.addAll(apiClient.parameterToPairs("", "folder", folder));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call putNewPageValidateBeforeCall(String name, String pageName, String folder, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling putNewPage(Async)");
+        }
+        
+        // verify the required parameter 'pageName' is set
+        if (pageName == null) {
+            throw new ApiException("Missing the required parameter 'pageName' when calling putNewPage(Async)");
+        }
+        
+        
+        com.squareup.okhttp.Call call = putNewPageCall(name, pageName, folder, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Add new empty page
+     * 
+     * @param name Document name. (required)
+     * @param pageName New page name. (required)
+     * @param folder Document folder. (optional)
+     * @return ModifyResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModifyResponse putNewPage(String name, String pageName, String folder) throws ApiException {
+        ApiResponse<ModifyResponse> resp = putNewPageWithHttpInfo(name, pageName, folder);
+        return resp.getData();
+    }
+
+    /**
+     * Add new empty page
+     * 
+     * @param name Document name. (required)
+     * @param pageName New page name. (required)
+     * @param folder Document folder. (optional)
+     * @return ApiResponse&lt;ModifyResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModifyResponse> putNewPageWithHttpInfo(String name, String pageName, String folder) throws ApiException {
+        com.squareup.okhttp.Call call = putNewPageValidateBeforeCall(name, pageName, folder, null, null);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Add new empty page (asynchronously)
+     * 
+     * @param name Document name. (required)
+     * @param pageName New page name. (required)
+     * @param folder Document folder. (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call putNewPageAsync(String name, String pageName, String folder, final ApiCallback<ModifyResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = putNewPageValidateBeforeCall(name, pageName, folder, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ModifyResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
 }
