@@ -6,12 +6,12 @@
   <packaging>jar</packaging>
   <name>aspose-diagram-cloud</name>
   <version>20.3</version>
-  <url>https://github.com/swagger-api/swagger-codegen</url>
-  <description>Swagger Java</description>
+  <url>https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-java</url>
+
   <scm>
-    <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-    <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
+    <connection>scm:git:git@github.com:aspose-diagram-cloud/aspose-diagram-cloud-java.git</connection>
+    <developerConnection>Aspose</developerConnection>
+    <url>https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-java</url>
   </scm>
   <prerequisites>
     <maven>2.2.0</maven>
