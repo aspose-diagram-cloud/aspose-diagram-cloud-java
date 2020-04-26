@@ -113,4 +113,4 @@ Your feedback is very important to us. Please feel free to contact via
 + [**API Reference**](https://apireference.aspose.cloud/diagram/)
 + [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
 + [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
-+ [**Blog**](https://blog.aspose.cloud/category/diagram/
++ [**Blog**](https://blog.aspose.cloud/category/diagram/)
