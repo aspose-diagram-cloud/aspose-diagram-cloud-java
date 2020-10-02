@@ -49,7 +49,7 @@ To use this SDK, you will need App SID and App Key which can be looked up at [As
 * Upload document and save it with supported format
 * Download document with supported format 
 
-For the complete list of use-cases, please refer to [common operations format support map](https://docs.aspose.cloud/display/diagramcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap) to see what you can achieve!
+For the complete list of use-cases, please refer to [common operations format support map](https://docs.aspose.cloud/diagram/supported-file-formats/) to see what you can achieve!
 
 
 # Storage API support
@@ -109,7 +109,7 @@ Your feedback is very important to us. Please feel free to contact via
 # Resources
 + [**Website**](https://www.aspose.cloud)
 + [**Product Home**](https://products.aspose.cloud/diagram)
-+ [**Documentation**](https://docs.aspose.cloud/display/diagramcloud/Home)
++ [**Documentation**](https://docs.aspose.cloud/diagram/)
 + [**API Reference**](https://apireference.aspose.cloud/diagram/)
 + [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
 + [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
