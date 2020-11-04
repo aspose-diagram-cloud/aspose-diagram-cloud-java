@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/api-v3.0-lightgrey) [![GitHub license](https://img.shields.io/github/license/aspose-diagram-cloud/aspose-Diagram-cloud-java)](https://github.com/aspose-diagram-cloud/aspose-Diagram-cloud-java/blob/master/LICENSE) ![GitHub last commit](https://img.shields.io/github/last-commit/Aspose-Diagram-Cloud/aspose-diagram-cloud-java)
+![](https://img.shields.io/badge/api-v3.0-lightgrey) ![GitHub last commit](https://img.shields.io/github/last-commit/Aspose-Diagram-Cloud/aspose-diagram-cloud-java)
 
 # Java SDK for Visio File Formats
 
@@ -32,8 +32,6 @@
 ## Get Started with Aspose.Diagram Cloud SDK for Java
 
 Register an account at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) to get you application information. Next, add the following dependency to your project's POM to automatically fetch the required artifacts.
-
-Add this dependency and repository to your project's POM:
 
 ```xml
 <dependencies>
