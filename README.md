@@ -1,15 +1,17 @@
 ![](https://img.shields.io/badge/api-v3.0-lightgrey) ![GitHub last commit](https://img.shields.io/github/last-commit/Aspose-Diagram-Cloud/aspose-diagram-cloud-java)
 
-# Java SDK for Visio File Formats
+# Java Cloud REST API for Visio Processing
 
-[Aspose.Diagram Cloud SDK for Java](https://products.aspose.cloud/Diagram/java) wraps the Aspose.Diagram REST API which allows developers to to view, export and convert Microsoft Visio format files to various other formats including fixed-layout, web and images.
+[Aspose.Diagram Cloud SDK for Java](https://products.aspose.cloud/Diagram/java) wraps the Aspose.Diagram REST API which allows developers to view, export and convert Microsoft Visio format files to various other formats including fixed-layout, web and images.
 
-## Process Diagrams in the Cloud
+## Visio Processing Features
 
-- [Create diagrams from scratch](https://docs.aspose.cloud/diagram/create-diagram-file/).
 - [Convert diagrams](https://docs.aspose.cloud/diagram/convert-diagram-file-to-another-format/) to 20+ different file formats.
-- Render diagrams as images for easy viewing.
-- Upload & download files from cloud storage.
+- Retrieve document information of a Visio diagram.
+- Programmatically create a new Microsoft Visio diagram file.
+- Convert Visio flow-charts to other supported formats.
+- Upload your business-oriented Visio diagrams to cloud storage.
+- Export Visio files to raster images, fixed-layout, and HTML formats.
 
 ## Read Diagrams From
 
