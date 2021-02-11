@@ -1,4 +1,5 @@
-![](https://img.shields.io/badge/api-v3.0-lightgrey) ![GitHub last commit](https://img.shields.io/github/last-commit/Aspose-Diagram-Cloud/aspose-diagram-cloud-java)
+![](https://img.shields.io/badge/api-v3.0-lightgrey) ![GitHub last commit](https://img.shields.io/github/last-commit/Aspose-Diagram-Cloud/aspose-diagram-cloud-java)  [![GitHub license](https://img.shields.io/github/license/aspose-diagram-cloud/aspose-Diagram-cloud-android)](https://github.com/aspose-diagram-cloud/aspose-Diagram-cloud-java/blob/master/LICENSE)
+
 
 # Java Cloud REST API for Visio Processing
 
@@ -40,7 +41,7 @@ Register an account at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/a
 	<dependency>
 		<groupId>com.aspose</groupId>
 		<artifactId>aspose-diagram-cloud</artifactId>
-		<version>20.3</version>
+		<version>21.1</version>
 	</dependency>
 </dependencies>
 ```
@@ -53,6 +54,19 @@ Register an account at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/a
 	</repository>
 </repositories>
 ```
+
+## Create VDX Diagram in Java
+
+```java
+	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
+	DiagramApi api = new DiagramApi("client_credentials", "MY_CLIENT_ID", "MY_CLIENT_SECRET");
+
+	String fileName = "sample.vdx";
+	String folder = "my_output";
+	Boolean is_overwrite = "true";
+	CreateNewResponse response = api.postDiagramConvert(fileName, folder, is_overwrite);
+```
+
 
 ## Aspose.Diagram Cloud SDKs in Popular Languages
 
